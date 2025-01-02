@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ums-l200220216.gihub.io</title>
+    <title>ums-l200220216.github.io</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #F5EFFF;
+            background-color: #121212;
+            color: #E0E0E0;
         }
         header {
-            background-color: #A294F9;
-            color: white;
+            background-color: #1F1F1F;
+            color: #BB86FC;
             text-align: center;
             padding: 20px;
+            border-bottom: 2px solid #BB86FC;
         }
         header h1 {
             margin: 0;
@@ -23,10 +25,12 @@
         }
         header p {
             margin: 10px 0;
+            font-size: 1.2em;
+            color: #A0A0A0;
         }
-        header button.github-button {
-            background-color: #CDC1FF;
-            color: white;
+        header .github-button {
+            background-color: #BB86FC;
+            color: #121212;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
@@ -34,65 +38,85 @@
             font-size: 16px;
             text-transform: uppercase;
             text-decoration: none;
-            display: inline-block;
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
-        header button.github-button:hover {
-            background-color: #E5D9F2;
+        header .github-button:hover {
+            background-color: #3700B3;
         }
         .container {
             max-width: 1200px;
             margin: 20px auto;
             padding: 20px;
-            text-align: center;
-            background: #E5D9F2;
+            background: #1E1E1E;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
         }
         .category {
             margin: 30px 0;
         }
         .category h2 {
-            color: #333;
+            color: #BB86FC;
             margin-bottom: 20px;
+            text-transform: uppercase;
         }
         .links {
             display: flex;
             justify-content: center;
             gap: 20px;
+            flex-wrap: wrap; 
         }
         .link-box {
             flex: 1;
             max-width: 200px;
-            background-color: #CDC1FF;
-            border: 1px solid #A294F9;
+            background-color: #333333;
+            border: 1px solid #BB86FC;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             padding: 20px;
             text-align: center;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .link-box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
         }
         .link-box span {
-            font-size: 1.2em;
+            font-size: 1em; 
             font-weight: bold;
-            color: #1A1A1D;
+            color: #E0E0E0;
+            display: block;
+            word-wrap: break-word; 
+            max-width: 180px;
+            margin: 5px auto;
         }
         .link-box a {
             display: block;
             margin-top: 10px;
             text-decoration: none;
-            color: #007BFF;
+            color: #03DAC6;
             font-weight: bold;
+            transition: color 0.3s;
+        }
+        .link-box a:hover {
+            color: #018786;
         }
         footer {
-            background-color: #2c3e50;
-            color: white;
+            background-color: #1F1F1F;
+            color: #A0A0A0;
             text-align: center;
             padding: 10px 0;
             margin-top: 30px;
+            border-top: 2px solid #BB86FC;
+        }
+        footer a {
+            color: #03DAC6;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #018786;
         }
     </style>
 </head>
@@ -109,9 +133,12 @@
         <div class="category">
             <h2>Tugas Sebelum UTS</h2>
             <div class="links">
-                </div>
                 <div class="link-box">
                     <span>ilustrasikuliah.py</span>
+                    <a href="ilustrasikuliah.html">Lihat Tugas</a>
+                </div>
+                <div class="link-box">
+                    <span>helloworld.py</span>
                     <a href="helloworld.py">Download kode Tugas</a>
                 </div>
             </div>
@@ -121,7 +148,7 @@
             <h2>Tugas Sebelum UAS</h2>
             <div class="links">
                 <div class="link-box">
-                    <span>laporan</span>
+                    <span>Laporan Tugas</span>
                     <a href="laporan.html">Lihat Laporan Tugas</a>
                 </div>
             </div>
@@ -129,7 +156,7 @@
     </div>
 
     <footer>
-        &copy; 2024 ums-l200220216.github.io . All rights reserved.
+        &copy; 2024 <a href="https://ums-l200220216.github.io">ums-l200220216.github.io</a>. All rights reserved.
     </footer>
 </body>
 </html>
