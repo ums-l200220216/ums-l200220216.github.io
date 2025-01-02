@@ -7,54 +7,72 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #E0E0E0;
         }
         header {
-            background-color: #A294F9;
-            color: white;
+            background-color: #1F1F1F;
+            color: #BB86FC;
+            text-align: center;
             padding: 20px;
+            border-bottom: 2px solid #BB86FC;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
         }
         .container {
             max-width: 900px;
-            margin: 0 auto;
+            margin: 20px auto;
+            padding: 20px;
+            background: #1E1E1E;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
             text-align: center;
         }
+        h3 {
+            color: #BB86FC;
+            margin-bottom: 10px;
+        }
         pre {
-            background-color: #F5EFFF;
+            background-color: #2C2C2C;
             padding: 15px;
             border-radius: 5px;
             text-align: left;
             overflow-x: auto;
-            border: 1px solid #ddd;
+            border: 1px solid #444;
+            color: #E0E0E0;
         }
         button {
-            background-color: #A294F9;
-            color: white;
+            background-color: #BB86FC;
+            color: #121212;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
             border-radius: 5px;
             font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #8c7aff;
+            background-color: #3700B3;
         }
-        h3 {
-            color: #555;
-        }
-        .output {
-            margin-top: 20px;
-        }
-        #logs {
+        .logs {
             margin-top: 20px;
             text-align: left;
         }
-
+        .logs h3 {
+            color: #BB86FC;
+        }
         .log-entry {
-            background: #CDC1FF;
+            background: #333333;
             padding: 10px;
             border-radius: 3px;
             margin-bottom: 10px;
+            color: #E0E0E0;
+            border-left: 3px solid #BB86FC;
         }
     </style>
 </head>
@@ -69,7 +87,7 @@
             from metaflow import FlowSpec, step
 
             class KuliahFlow(FlowSpec):
-                """A flow that simulates the steps of going through a wniversity smmester in Informatika."""
+                """A flow that simulates the steps of going through a university semester in Informatika."""
 
                 @step
                 def start(self):
@@ -80,23 +98,17 @@
                 @step
                 def bayar_spp(self):
 
-                    "Step untuk membayar SPP."
-
                     print("Mahasiswa Membayar SPP.")
                     self.next(self.krs)
 
                 @step
                 def krs(self):
 
-                    """Step untuk mengisi KRS (Kartu Rencana Studi)."""
-
                     print("Mahasiswa Mengisi KRS.")
-                    self.mext(self.kuliah)
+                    self.next(self.kuliah)
 
                 @step
                 def kuliah(self):
-
-                    """Step untuk menghadiri kuliah."""
 
                     print("Mahasiswa Menghadiri kuliah.")
                     self.next(self.ujian)
@@ -104,15 +116,11 @@
                 @step
                 def ujian(self):
 
-                    """Stop untuk mengikuti ujian akhir semester."""
-
                     print("Mahasiswa Mengikuti ujian akhir semester.")
                     self.next(self.khs)
 
                 @step
                 def khs(self):
-
-                    """Step untuk mendapatkan KHS (Kartu Hasil Studi)."""
 
                     print("Mahasiswa Mendapatkan KHS.")
                     self.next(self.end)
@@ -120,23 +128,18 @@
                 @step
                 def end(self):
 
-                    """This is the 'end' step. All flows must have an 'end' step, which is the
-                    last step in the flow."""
-
                     print("Proses kuliah Mahasiswa selesai.")
 
             if __name__ == "__main__":
                 KuliahFlow()
-
-
         </pre>
         <button onclick="runMetaflow()">Jalankan Simulasi</button>
-        <!-- <div id="logs"></div> -->
         <div class="logs">
             <h3>Output:</h3>
-            <pre id="logs">Klik tombol untuk melihat hasilnya...</pre>
+            <div id="logs">
+                Klik tombol untuk melihat hasilnya...
+            </div>
         </div>
-        
     </div>
     <script>
         function runMetaflow() {
@@ -147,6 +150,7 @@
             if (sppTerbayar) {
                 logs.push("SPP berhasil dibayarkan.");
                 logs.push("Mahasiswa Membayar SPP.");
+                logs.push("Mahasiswa Mengisi KRS.");
                 logs.push("Mahasiswa Menghadiri kuliah.");
                 logs.push("Mahasiswa Mengikuti ujian akhir semester.");
                 logs.push("Mahasiswa Mendapatkan KHS.");
@@ -159,7 +163,6 @@
             const logsDiv = document.getElementById('logs');
             logsDiv.innerHTML = logs.map(log => `<div class='log-entry'>${log}</div>`).join('');
         }
-
     </script>
 </body>
 </html>
